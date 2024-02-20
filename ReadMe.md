@@ -5,24 +5,25 @@ En este proyecto crearás una landing page maquetada y responsive para una “su
 Para esto, navega a cualquier web de una tienda ya existente (o si prefieres, inventa tu propia tienda), y copia su página de inicio con HTML y CSS.
 
 Por ejemplo, accede a la web de PcComponentes y guarda una captura completa del diseño de su página de inicio como referencia para la entrega.
-https://www.ethicalsuperstore.com/
+
+@amunizp eligio: https://www.ethicalsuperstore.com/
 
 ![01. Header Nav Aside](https://github.com/amunizp/RockTheCode-Enmaquetador/blob/main/01.%20Header-Nav-Aside.png 'Header Nav Aside')
 
-![02. Explore](02. Explore.png "Explore")
+![02. Explore](https://github.com/amunizp/RockTheCode-Enmaquetador/blob/main/02.%20Explore.png 'Explore')
 
-![03. Product Cards](03. Product Cards.png "03. Product Cards")
+![03. Product Cards](https://github.com/amunizp/RockTheCode-Enmaquetador/blob/main/03.%20Product%20Cards.png '03. Product Cards')
 
-![04. Footer](04. Footer.png "04. Footer")
+![04. Footer](https://github.com/amunizp/RockTheCode-Enmaquetador/blob/main/04.%20Footer.png '04. Footer')
 
 Consideraremos el proyecto completo cuando hayas maquetado al completo la landing page correspondiente. ¡Te pediremos unos mínimos a entregar, por lo que intenta que la web tenga algunas secciones y no sea algo sencillo o parecido a Google!
 
 Como indicaciones para comenzar:
 
-- Crea tu carpeta de proyecto e inicializa un repositorio de Git en ella.
-- Crea un archivo index.html y un archivo style.css.
-- Carga el CSS en el HTML y haz tu primer commit.
-- Sube todo a la rama main de un nuevo repositorio de Github.
+- Crea tu carpeta de proyecto e inicializa un repositorio de Git en ella. 🗹
+- Crea un archivo index.html y un archivo style.css. 🗹
+- Carga el CSS en el HTML y haz tu primer commit. 🗹
+- Sube todo a la rama main de un nuevo repositorio de Github. 🗹
 
 Ya puedes empezar tu proyecto 🚀
 
