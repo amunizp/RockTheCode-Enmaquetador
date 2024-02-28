@@ -1,0 +1,265 @@
+:root {
+  --primary-color: rgb(255, 255, 255, 0.87); /* Color primario */
+  --secondary-color: rgb(21, 21, 21); /* Color secundario */
+  --header-color: rgb(125, 125, 125);
+  --search-color: rgb(145, 145, 145);
+  --main-color: linear-gradient(blue, white);
+  --blue-color: #2bc5cd; /* Color azul */
+  --orange-color: #ff693d; /* Color naranja */
+  --border: 2px solid var(--blue-color); /* Borde con el color azul */
+  --border-thick: 2px;
+  --spacing: 28px; /* Espaciado */
+  --width-max-tablet: 768px; /*para tableta */
+  --width-min-tablet: 375px;
+  --font-size: 1rem;
+  --font-size-large: 1.25rem;
+  font-family: lato, Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  /* descargado de google fonts */
+  font-family: 'lato';
+  src: local('lato'),
+    url('./assets/fonts/Lato/Lato-Regular.ttf') format('truetype'),
+    url('./assets/fonts/Lato/lato-regular-webfont.woff2') format('woff2'),
+    url('/assets/fonts/Lato/lato-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header {
+  background-color: var(--primary-color);
+  margin-top: (var(--spacing));
+  display: flex;
+  justify-content: center;
+}
+header > div.greyHeader {
+  max-width: calc(var(--width-max-tablet) * 2);
+  padding: var(--spacing);
+  padding-bottom: 0;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  grid-template-columns: repeat(3, 1fr) auto;
+  grid-template-rows: 100px 50px;
+  grid-template-areas:
+    'logoMain logoSecondary empty topNav'
+    'nav2 search search cesta';
+  gap: 0;
+}
+div.greyHeader * {
+  min-height: 0;
+}
+header > div.greyHeader > .logoMain,
+.logoSecondary,
+.empty,
+.topNav {
+  background-color: var(--primary-color);
+}
+
+.logoMain {
+  grid-area: logoMain;
+}
+.logoSecondary {
+  grid-area: logoSecondary;
+}
+.empty {
+  grid-area: empty;
+}
+.topNav {
+  grid-area: topNav;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: minmax(var(--font-size), 1fr) auto; */
+  grid-template-rows: 50px 50px;
+  grid-template-areas:
+    'title'
+    'links';
+}
+
+.topNav > .title {
+  grid-area: title;
+  height: fit-content;
+}
+.topNav > .links {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto;
+  grid-template-areas: 'tel blog help account';
+  list-style-type: none;
+  padding: 0;
+}
+.tel,
+.blog,
+.help,
+.account {
+  padding-right: var(--spacing);
+}
+.links > .tel {
+  grid-area: tel;
+  font-size: var(--font-size-large);
+}
+
+a {
+  font-weight: 500;
+  color: var(--blue-color);
+  align-items: center;
+}
+a:hover {
+  color: var(--orange-color);
+  cursor: pointer;
+}
+.logoMain > img:hover {
+  filter: drop-shadow(0 0 2em var(--blue-color));
+}
+header > div.greyHeader > .nav2,
+.search,
+.cesta {
+  background-color: var(--header-color);
+  color: var(--primary-color);
+}
+.greyHeader > .nav2 {
+  grid-area: nav2;
+  text-transform: capitalize;
+  font-size: var(--font-size);
+}
+.greyHeader > .search {
+  grid-area: search;
+  width: 100%;
+  background-color: var(--search-color);
+  display: grid;
+  grid-template-columns: 20px auto 50px;
+  grid-template-rows: auto;
+  grid-template-areas: 'searchIcon searchInput searchButton';
+}
+.search > a.searchIcon {
+  grid-area: searchIcon;
+  align-content: center;
+}
+.search > input {
+  grid-area: searchInput;
+  width: 100%;
+}
+.search > button.searchButton {
+  grid-area: searchButton;
+}
+.greyHeader > .cesta {
+  grid-area: cesta;
+}
+main {
+  display: flex;
+  justify-content: center;
+  background: var(--main-color);
+}
+main > div.mainGrid {
+  background-color: transparent;
+  border: var(--border-thick) solid var(--blue-color);
+  max-width: calc(
+    var(--width-max-tablet) * 2
+  ); /* Set the max-width to match the width of greyHeader */
+  margin: 0 auto; /* Center the mainGrid horizontally */
+  display: grid;
+  grid-template-areas: 'aside cositas' 'aside products';
+  grid-template-columns: 200px auto;
+  grid-template-rows: 50px 1fr;
+  gap: var(--spacing);
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+}
+
+aside {
+  grid-area: aside;
+  background-color: var(--primary-color);
+}
+section {
+  background-color: var(--primary-color);
+}
+section.cositas {
+  grid-area: cositas;
+}
+section.products {
+  grid-area: products;
+}
+section.products ul {
+  list-style: none;
+  padding-left: 0;
+}
+footer {
+  background-color: var(--header-color);
+}
+@media (width <= 1000px) {
+  /* molaria poder usar algo como en() para elegir la var() var no funciona aqui) */
+  header > div.greyHeader {
+    grid-template-columns: repeat(2, 1fr) auto;
+    grid-template-rows: 100px 50px;
+    grid-template-areas:
+      'logoMain empty topNav'
+      'nav2 search cesta';
+  }
+  .logoSecondary {
+    display: none;
+    /* quitamos los especiados dqu esobran */
+  }
+}
+@media (width <= 768px) {
+  /* molaria poder usar algo como en() para elegir la var() var no funciona aqui) */
+  header > div.greyHeader {
+    padding: calc(var(--spacing) / 4);
+    padding-bottom: 0;
+  }
+  .links {
+    padding-right: 0;
+  }
+  .links > .tel,
+  .blog,
+  .help,
+  .account {
+    padding-right: calc(var(--spacing) / 4);
+    font-size: var(--font-size);
+  }
+  .search > button {
+    display: none;
+  }
+}
+@media (width <= 475px) {
+  .blog {
+    display: none;
+  }
+  li.tel span {
+    display: none;
+  }
+}
+
+@media (width <= 375px) {
+  .blog {
+    display: none;
+  }
+  .title {
+    display: none;
+  }
+  .greyHeader span {
+    display: none; /*con cuidado de aun mantenerlo accesible con alt text de imagenes */
+  }
+  .search > input {
+    display: none;
+  }
+  .links > .tel,
+  .blog,
+  .help,
+  .account {
+    padding-right: var(--spacing);
+  }
+}
