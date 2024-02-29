@@ -58,6 +58,7 @@ header > div.greyHeader {
     'logoMain logoSecondary empty topNav'
     'nav2 search search cesta';
   gap: 0;
+  flex-grow: 1;
 }
 div.greyHeader * {
   min-height: 0;
@@ -166,18 +167,18 @@ main {
 }
 main > div.mainGrid {
   background-color: transparent;
-  border: var(--border-thick) solid var(--blue-color);
-  max-width: calc(
-    var(--width-max-tablet) * 2
-  ); /* Set the max-width to match the width of greyHeader */
+  border: var(--border-thick) solid
+    var(--padding-left: var(--spacing) ; padding-right: var() ;blue-color); /* Set the max-width to match the width of greyHeader */
+  max-width: calc(var(--width-max-tablet) * 2);
   margin: 0 auto; /* Center the mainGrid horizontally */
   display: grid;
   grid-template-areas: 'aside cositas' 'aside products';
-  grid-template-columns: 200px auto;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 50px 1fr;
   gap: var(--spacing);
   padding-left: var(--spacing);
   padding-right: var(--spacing);
+  flex-grow: 1;
 }
 
 aside {
@@ -192,10 +193,14 @@ section.cositas {
 }
 section.products {
   grid-area: products;
+  display: flex;
 }
 section.products ul {
   list-style: none;
   padding-left: 0;
+}
+article.product {
+  width: 200px;
 }
 footer {
   background-color: var(--header-color);
