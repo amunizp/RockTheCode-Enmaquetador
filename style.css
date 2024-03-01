@@ -11,6 +11,7 @@
   --spacing: 28px; /* Espaciado */
   --width-max-tablet: 768px; /*para tableta */
   --width-min-tablet: 375px;
+  --height-footer-list: 220px;
   --font-size: 1rem;
   --font-size-large: 1.25rem;
   font-family: lato, Arial, Helvetica, sans-serif;
@@ -167,14 +168,12 @@ main {
 }
 main > div.mainGrid {
   background-color: transparent;
-  border: var(--border-thick) solid
-    var(--padding-left: var(--spacing) ; padding-right: var() ;blue-color); /* Set the max-width to match the width of greyHeader */
   max-width: calc(var(--width-max-tablet) * 2);
   margin: 0 auto; /* Center the mainGrid horizontally */
   display: grid;
   grid-template-areas: 'aside cositas' 'aside products';
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: auto 1fr;
   gap: var(--spacing);
   padding-left: var(--spacing);
   padding-right: var(--spacing);
@@ -184,27 +183,113 @@ main > div.mainGrid {
 aside {
   grid-area: aside;
   background-color: var(--primary-color);
+  height: fit-content;
+}
+aside h2 {
+  background: var(--header-color);
+  margin-top: 0;
+  text-align: center;
+}
+aside p {
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
 }
 section {
   background-color: var(--primary-color);
 }
 section.cositas {
   grid-area: cositas;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-transform: uppercase;
 }
 section.products {
   grid-area: products;
   display: flex;
+  flex-direction: row;
+  gap: var(--spacing);
 }
 section.products ul {
   list-style: none;
   padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: calc(var(--spacing) / 2);
+  justify-content: center;
+}
+li.productItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 article.product {
   width: 200px;
 }
+figure.productFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+button.toBasket {
+  background-color: var(--blue-color);
+}
+div.stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.checked {
+  color: var(--orange-color);
+}
 footer {
   background-color: var(--header-color);
+  display: flex;
+  justify-content: center;
 }
+footer > div.footerGrid {
+  border: var(--border-thick) solid var(--blue-color); /* Set the max-width to match the width of greyHeader */
+  max-width: calc(var(--width-max-tablet) * 2);
+  padding: var(--spacing);
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'about shop help socials';
+  gap: calc(var(--spacing) / 2);
+}
+div.footerGrid .about {
+  grid-area: about;
+}
+div.footerGrid .shop {
+  grid-area: shop;
+}
+div.footerGrid .help {
+  grid-area: help;
+}
+div.footerGrid .socials {
+  grid-area: socials;
+}
+.tab {
+  display: flex;
+  flex-direction: column;
+}
+
+ul.content {
+  opacity: 1;
+  left: 0;
+  padding: var(--spacing);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: var(--height-footer-list);
+}
+
 @media (width <= 1000px) {
   /* molaria poder usar algo como en() para elegir la var() var no funciona aqui) */
   header > div.greyHeader {
@@ -217,6 +302,14 @@ footer {
   .logoSecondary {
     display: none;
     /* quitamos los especiados dqu esobran */
+  }
+  footer > div.footerGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'about shop help socials';
+  }
+  footer .content {
+    display: none;
   }
 }
 @media (width <= 768px) {
@@ -236,6 +329,18 @@ footer {
     font-size: var(--font-size);
   }
   .search > button {
+    display: none;
+  }
+  main > div.mainGrid {
+    grid-template-areas: 'products';
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding: 0;
+  }
+  aside {
+    display: none;
+  }
+  section.cositas {
     display: none;
   }
 }
