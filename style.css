@@ -20,6 +20,26 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
+h2 {
+  font-weight: bolder;
+  margin-bottom: 1em;
+}
+h3 {
+  font-weight: bolder;
+  color: var(--primary-color);
+  text-shadow: -1px -1px 0 var(--secondary-color),
+    1px -1px 0 var(--secondary-color), -1px 1px 0 var(--secondary-color),
+    1px 1px 0 var(--secondary-color);
+}
+h4 {
+  color: var(--primary-color);
+}
+span {
+  color: var(--secondary-color);
+}
+p {
+  margin-bottom: 0.9em;
+}
 
 @font-face {
   /* descargado de google fonts */
@@ -250,7 +270,6 @@ footer {
   justify-content: center;
 }
 footer > div.footerGrid {
-  border: var(--border-thick) solid var(--blue-color); /* Set the max-width to match the width of greyHeader */
   max-width: calc(var(--width-max-tablet) * 2);
   padding: var(--spacing);
   padding-top: 0;
