@@ -20,26 +20,6 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
-h2 {
-  font-weight: bolder;
-  margin-bottom: 1em;
-}
-h3 {
-  font-weight: bolder;
-  color: var(--primary-color);
-  text-shadow: -1px -1px 0 var(--secondary-color),
-    1px -1px 0 var(--secondary-color), -1px 1px 0 var(--secondary-color),
-    1px 1px 0 var(--secondary-color);
-}
-h4 {
-  color: var(--primary-color);
-}
-span {
-  color: var(--secondary-color);
-}
-p {
-  margin-bottom: 0.9em;
-}
 
 @font-face {
   /* descargado de google fonts */
@@ -60,7 +40,29 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.display-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex-row {
+  flex-direction: row;
+}
 
+h2 {
+  font-weight: bolder;
+  margin-bottom: 1em;
+}
+
+h4 {
+  color: var(--secondary-color);
+}
+span {
+  color: var(--secondary-color);
+}
+p {
+  margin-bottom: 0.9em;
+}
 header {
   background-color: var(--primary-color);
   margin-top: (var(--spacing));
@@ -224,6 +226,13 @@ section.cositas {
   justify-content: space-around;
   text-transform: uppercase;
 }
+section.cositas h3 {
+  font-weight: bolder;
+  color: var(--primary-color);
+  text-shadow: -1px -1px 0 var(--secondary-color),
+    1px -1px 0 var(--secondary-color), -1px 1px 0 var(--secondary-color),
+    1px 1px 0 var(--secondary-color);
+}
 section.products {
   grid-area: products;
   display: flex;
@@ -244,6 +253,7 @@ li.productItem {
   flex-direction: column;
   justify-content: center;
 }
+
 article.product {
   width: 200px;
 }
