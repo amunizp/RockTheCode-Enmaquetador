@@ -91,14 +91,22 @@ header > div.greyHeader > .logoMain,
 .empty,
 .topNav {
   background-color: var(--primary-color);
+  height: fit-content;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .logoMain {
   grid-area: logoMain;
+  align-self: center;
 }
+
 .logoSecondary {
   grid-area: logoSecondary;
+  align-self: center;
 }
+
 .empty {
   grid-area: empty;
 }
@@ -159,6 +167,10 @@ header > div.greyHeader > .nav2,
   grid-area: nav2;
   text-transform: capitalize;
   font-size: var(--font-size);
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: auto;
 }
 .greyHeader > .search {
   grid-area: search;
@@ -168,6 +180,7 @@ header > div.greyHeader > .nav2,
   grid-template-columns: 20px auto 50px;
   grid-template-rows: auto;
   grid-template-areas: 'searchIcon searchInput searchButton';
+  padding: auto;
 }
 .search > a.searchIcon {
   grid-area: searchIcon;
@@ -182,6 +195,9 @@ header > div.greyHeader > .nav2,
 }
 .greyHeader > .cesta {
   grid-area: cesta;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 main {
   display: flex;
@@ -327,6 +343,7 @@ ul.content {
     grid-template-areas:
       'logoMain empty topNav'
       'nav2 search cesta';
+    align-items: center;
   }
   .logoSecondary {
     display: none;
@@ -338,6 +355,11 @@ ul.content {
     grid-template-areas: 'about shop help socials';
   }
   footer .content {
+    display: none;
+  }
+}
+@media (width <= 820px) {
+  .nav2 > span {
     display: none;
   }
 }
@@ -357,6 +379,7 @@ ul.content {
     padding-right: calc(var(--spacing) / 4);
     font-size: var(--font-size);
   }
+
   .search > button {
     display: none;
   }
@@ -371,6 +394,10 @@ ul.content {
   }
   section.cositas {
     display: none;
+  }
+  section.products {
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
   }
 }
 @media (width <= 475px) {
